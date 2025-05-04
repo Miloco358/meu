@@ -2,12 +2,12 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Novos Relacionamentos</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: url('https://img.freepik.com/fotos-gratis/casal-com-amigo-sentado-nos-degraus-da-casa_23-2148219029.jpg?t=st=1746367001~exp=1746370601~hmac=c4dd419571ac43e680f37b70ae0cdafba53b32a7a9cffed42633b54d1b8d95c4&w=996') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #333;
       margin: 0;
@@ -24,17 +24,30 @@
 
     h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
     }
 
     .container {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 20px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
     }
 
-    .intro, .form-container, .testimonials {
-      background-color: rgba(255, 255, 255, 0.95);
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .intro p.price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #e74c3c;
+    }
+
+    .form-container {
+      background-color: white;
       border-radius: 10px;
       padding: 2rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -80,23 +93,34 @@
       background-color: #2980b9;
     }
 
+    .testimonials {
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
     .testimonial {
       margin-bottom: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-      font-style: italic;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .testimonial:last-child {
+      border-bottom: none;
     }
 
     .testimonial-author {
       font-weight: bold;
-      color: #2c3e50;
-      font-style: normal;
+      color: #34495e;
+      font-size: 0.9rem;
     }
 
     footer {
       text-align: center;
       padding: 1.5rem;
-      background-color: rgba(44, 62, 80, 0.9);
+      background-color: rgba(44, 62, 80, 0.95);
       color: white;
     }
 
@@ -107,17 +131,17 @@
     .social-buttons a {
       display: inline-block;
       margin: 0 10px;
-      background-color: #25d366;
       color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
+      background-color: #25d366;
+      padding: 10px 15px;
+      border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s;
+      transition: background-color 0.3s;
     }
 
     .social-buttons a.instagram {
-      background-color: #e4405f;
+      background-color: #e1306c;
     }
 
     .social-buttons a:hover {
@@ -126,18 +150,16 @@
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
-      .container {
-        padding: 0 10px;
+      .form-container, .testimonials {
+        padding: 1rem;
       }
 
-      .social-buttons a {
-        display: block;
-        margin: 10px auto;
-        width: 80%;
-        text-align: center;
+      button {
+        font-size: 0.95rem;
+        padding: 10px;
       }
     }
   </style>
@@ -152,18 +174,19 @@
     <div class="intro">
       <h2>Mande uma mensagem para mim!</h2>
       <p>Preencha o formulário abaixo e eu entrarei em contato pelo WhatsApp.</p>
+      <p class="price">💰 Valor: R$150 mensais</p>
     </div>
 
     <div class="form-container">
       <form id="contactForm">
         <div class="form-group">
           <label for="name">Seu nome:</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" name="name" required>
         </div>
 
         <div class="form-group">
           <label for="age">Sua idade:</label>
-          <input type="number" id="age" name="age" required min="18" max="99" />
+          <input type="number" id="age" name="age" required min="18" max="99">
         </div>
 
         <div class="form-group">
@@ -176,22 +199,26 @@
     </div>
 
     <div class="testimonials">
-      <h2>Depoimentos</h2>
+      <h2>Avaliações de Amigos</h2>
 
       <div class="testimonial">
-        <p><span class="testimonial-author">Wesley Junior</span>: Comecei a ser amigo do Kauan e 2 anos e meio depois, estou noivo.</p>
+        <p class="testimonial-author">Wesley Junior:</p>
+        <p>Amizade com o Kauan trouxe bons frutos. Hoje estou noivo!</p>
       </div>
 
       <div class="testimonial">
-        <p><span class="testimonial-author">Pedro Becker</span>: Virei amigo do Kauan e 2 anos depois estou noivo.</p>
+        <p class="testimonial-author">Pedro Becker:</p>
+        <p>Fui amigo do Kauan e encontrei meu amor dois anos depois.</p>
       </div>
 
       <div class="testimonial">
-        <p><span class="testimonial-author">Rian</span>: Virei amigo do Kauan e 2 anos e 2 meses depois já estou namorando.</p>
+        <p class="testimonial-author">Rian:</p>
+        <p>Dois anos e dois meses depois de virarmos amigos, comecei a namorar.</p>
       </div>
 
       <div class="testimonial">
-        <p><span class="testimonial-author">Vinicius Lemes</span>: Virei amigo do Kauan e logo depois comecei a namorar.</p>
+        <p class="testimonial-author">Vinicius Lemes:</p>
+        <p>Me tornei amigo do Kauan e logo encontrei um relacionamento.</p>
       </div>
     </div>
   </div>
@@ -205,7 +232,7 @@
   </footer>
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
       const name = document.getElementById('name').value;
@@ -215,7 +242,9 @@
       const whatsappMessage = `Olá Kauan, sou ${name}, tenho ${age} anos. Minha mensagem: ${message}`;
 
       window.open(`https://wa.me/5544999630344?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+
       document.getElementById('contactForm').reset();
+
       alert('Obrigado! Redirecionando para o WhatsApp...');
     });
   </script>
