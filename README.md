@@ -3,164 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seja meu amigo e comece um relacionamento</title>
+    <title>Novos Relacionamentos</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            background-color: #ffebee;
+            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            line-height: 1.6;
         }
         
         header {
-            background-color: #ff6b6b;
+            background-color: #e91e63;
             color: white;
             text-align: center;
             padding: 2rem 0;
         }
         
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 2rem auto;
             padding: 0 20px;
         }
         
-        .pricing {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .intro {
+            text-align: center;
             margin-bottom: 2rem;
         }
         
-        .pricing h2 {
-            color: #ff6b6b;
-            text-align: center;
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        .price {
-            font-size: 2.5rem;
-            text-align: center;
-            margin: 1rem 0;
-            color: #333;
+        .form-group {
+            margin-bottom: 1.5rem;
         }
         
-        .features {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .features li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .features li:last-child {
-            border-bottom: none;
-        }
-        
-        .cta-button {
+        label {
             display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: #ff6b6b;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 4px;
+            margin-bottom: 0.5rem;
             font-weight: bold;
-            margin-top: 1rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
             transition: background-color 0.3s;
         }
         
-        .cta-button:hover {
-            background-color: #ff5252;
+        button:hover {
+            background-color: #d81b60;
         }
         
-        .testimonials {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
         }
         
         footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 1.5rem;
             background-color: #333;
             color: white;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Amizades que Evoluem</h1>
-        <p>Conheça pessoas incríveis que podem se tornar mais que amigos</p>
+        <h1>Novos Relacionamentos</h1>
+        <p>Seja minha amiga e quem sabe a gente não começa a namorar? ❤️</p>
     </header>
     
     <div class="container">
-        <div class="pricing">
-            <h2>Plano Premium</h2>
-            <div class="price">R$150/mês</div>
-            <ul class="features">
-                <li>✔ Perfil destacado na plataforma</li>
-                <li>✔ Acesso a eventos exclusivos</li>
-                <li>✔ Compatibilidade com seus interesses</li>
-                <li>✔ Mensagens ilimitadas</li>
-                <li>✔ Acompanhamento personalizado</li>
-            </ul>
-            <a href="#signup" class="cta-button">Assinar Agora</a>
+        <div class="intro">
+            <h2>Mande uma mensagem para mim!</h2>
+            <p>Preencha o formulário abaixo e eu entrarei em contato pelo WhatsApp ou Instagram.</p>
         </div>
         
-        <div class="testimonials">
-            <h2>Histórias de Sucesso</h2>
-            <p>"Conheci minha melhor amiga através dessa plataforma e hoje estamos noivos!" - Ana C.</p>
-            <p>"Valeu cada centavo investido. Em 3 meses conheci alguém especial." - João P.</p>
-        </div>
-        
-        <div id="signup" style="margin-top: 3rem;">
-            <h2>Cadastre-se</h2>
-            <form id="signupForm">
-                <div style="margin-bottom: 1rem;">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;">
+        <div class="form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Seu nome:</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
-                <div style="margin-bottom: 1rem;">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;">
+                <div class="form-group">
+                    <label for="age">Sua idade:</label>
+                    <input type="number" id="age" name="age" required min="18" max="99">
                 </div>
                 
-                <div style="margin-bottom: 1rem;">
-                    <label for="interests">Interesses:</label>
-                    <textarea id="interests" name="interests" style="width: 100%; padding: 8px;" rows="4"></textarea>
+                <div class="form-group">
+                    <label for="message">Mensagem para mim:</label>
+                    <textarea id="message" name="message" required placeholder="Fale um pouco sobre você..."></textarea>
                 </div>
                 
-                <button type="submit" class="cta-button">Enviar Cadastro</button>
+                <button type="submit">Enviar Mensagem</button>
             </form>
+        </div>
+        
+        <div class="contact-info">
+            <p>Você também pode me chamar diretamente:</p>
+            <p>📱 WhatsApp: <a href="https://wa.me/5544999630344" target="_blank">+55 44 99963-0344</a></p>
+            <p>📸 Instagram: <a href="https://instagram.com/kauanlemes.m" target="_blank">@kauanlemes.m</a></p>
         </div>
     </div>
     
     <footer>
-        <p>© 2023 Amizades que Evoluem. Todos os direitos reservados.</p>
+        <p>© 2024 Novos Relacionamentos. Todos os direitos reservados.</p>
     </footer>
     
     <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Captura os dados do formulário
             const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const message = document.getElementById('message').value;
             
-            // Aqui você normalmente enviaria para um servidor
-            // Por enquanto, vamos apenas mostrar uma mensagem
-            alert(`Obrigado, ${name}! Seu cadastro foi recebido. Enviaremos detalhes de pagamento para ${email} em breve.`);
+            // Mensagem formatada para o WhatsApp
+            const whatsappMessage = `Olá Kauan, sou ${name}, tenho ${age} anos. Minha mensagem: ${message}`;
+            
+            // Abre o WhatsApp com a mensagem pré-preenchida
+            window.open(`https://wa.me/5544999630344?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
             
             // Limpa o formulário
-            document.getElementById('signupForm').reset();
+            document.getElementById('contactForm').reset();
+            
+            // Mostra confirmação
+            alert('Obrigado! Redirecionando para o WhatsApp...');
         });
     </script>
 </body>
