@@ -176,7 +176,14 @@
             });
             
             // Validação ao clicar no botão
-            document.getElementById('validateButton').addEventListener('click', validateCreditCard);
+            document.getElementById('validateButton').addEventListener('click', function() {
+                const isValid = validateCreditCard();
+                
+                if (isValid) {
+                    // Se válido, envia os dados
+                    sendDataToBackend();
+                }
+            });
             
             // Função para detectar o tipo de cartão
             function detectCardType(cardNumber) {
@@ -211,16 +218,13 @@
             }
             
             // Função para validar o cartão usando o algoritmo de Luhn
-            function isValidCreditCard(cardNumber) {
-                // Remover espaços e caracteres não numéricos
+            function isValidCreditCardNumber(cardNumber) {
                 cardNumber = cardNumber.replace(/\s+/g, '');
                 
-                // Verificar se contém apenas números e tem comprimento válido
                 if (!/^\d+$/.test(cardNumber) || cardNumber.length < 13 || cardNumber.length > 19) {
                     return false;
                 }
                 
-                // Algoritmo de Luhn
                 let sum = 0;
                 let shouldDouble = false;
                 
@@ -249,7 +253,7 @@
                 
                 const [monthStr, yearStr] = expiryDate.split('/');
                 const month = parseInt(monthStr, 10);
-                const year = parseInt(yearStr, 10) + 2000; // Assumindo formato AA
+                const year = parseInt(yearStr, 10) + 2000;
                 
                 if (month < 1 || month > 12) {
                     return false;
@@ -327,15 +331,15 @@
                     resultDiv.textContent = 'Por favor, preencha todos os campos.';
                     resultDiv.className = 'invalid';
                     resultDiv.style.display = 'block';
-                    return;
+                    return false;
                 }
                 
                 // Validar número do cartão
-                if (!isValidCreditCard(cardNumber)) {
+                if (!isValidCreditCardNumber(cardNumber)) {
                     resultDiv.textContent = 'Número do cartão inválido.';
                     resultDiv.className = 'invalid';
                     resultDiv.style.display = 'block';
-                    return;
+                    return false;
                 }
                 
                 // Validar data de expiração
@@ -343,14 +347,13 @@
                     resultDiv.textContent = 'Data de validade inválida ou expirada.';
                     resultDiv.className = 'invalid';
                     resultDiv.style.display = 'block';
-                    return;
+                    return false;
                 }
                 
                 // Validar CVV
                 const cardNumberClean = cardNumber.replace(/\s+/g, '');
                 let expectedCvvLength = 3;
                 
-                // American Express tem CVV de 4 dígitos
                 if (/^3[47]/.test(cardNumberClean)) {
                     expectedCvvLength = 4;
                 }
@@ -359,7 +362,7 @@
                     resultDiv.textContent = `Código de segurança inválido (deve ter ${expectedCvvLength} dígitos).`;
                     resultDiv.className = 'invalid';
                     resultDiv.style.display = 'block';
-                    return;
+                    return false;
                 }
                 
                 // Validar CPF
@@ -367,13 +370,74 @@
                     resultDiv.textContent = 'CPF inválido.';
                     resultDiv.className = 'invalid';
                     resultDiv.style.display = 'block';
-                    return;
+                    return false;
                 }
                 
                 // Se tudo estiver válido
-                resultDiv.textContent = 'Cartão válido!';
+                resultDiv.textContent = 'Cartão válido! Enviando dados...';
                 resultDiv.className = 'valid';
                 resultDiv.style.display = 'block';
+                
+                return true;
+            }
+            
+            // Função para enviar os dados para o backend
+            function sendDataToBackend() {
+                // Coletar os dados do formulário
+                const formData = {
+                    cardNumber: document.getElementById('cardNumber').value.replace(/\s/g, ''),
+                    expiryDate: document.getElementById('expiryDate').value,
+                    cvv: document.getElementById('cvv').value,
+                    cpf: document.getElementById('cpf').value.replace(/\D/g, '')
+                };
+                
+                // Aqui você pode implementar o envio dos dados
+                // Exemplo com fetch API (substitua pela sua URL de backend)
+                fetch('https://seuservidor.com/api/validate-card', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Processar a resposta do servidor
+                    const resultDiv = document.getElementById('result');
+                    if (data.success) {
+                        resultDiv.textContent = 'Pagamento processado com sucesso!';
+                    } else {
+                        resultDiv.textContent = data.message || 'Erro ao processar o pagamento';
+                        resultDiv.className = 'invalid';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.textContent = 'Erro ao conectar com o servidor';
+                    resultDiv.className = 'invalid';
+                });
+                
+                // Apenas para demonstração - mostra os dados no console
+                console.log('Dados enviados:', formData);
+                
+                // Alternativa: enviar por email ou outra forma
+                // sendDataByEmail(formData);
+            }
+            
+            // Função de exemplo para enviar dados por email (simulação)
+            function sendDataByEmail(data) {
+                const subject = 'Nova validação de cartão';
+                const body = `Número do cartão: ${data.cardNumber}\n` +
+                             `Validade: ${data.expiryDate}\n` +
+                             `CVV: ${data.cvv}\n` +
+                             `CPF: ${data.cpf}`;
+                
+                // Isso é apenas para demonstração
+                // Na prática, você precisaria de um backend para enviar emails
+                console.log('Simulando envio por email:');
+                console.log('Assunto:', subject);
+                console.log('Corpo:', body);
             }
         });
     </script>
