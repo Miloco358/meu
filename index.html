@@ -1,252 +1,381 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Novos Relacionamentos</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: url('https://img.freepik.com/fotos-gratis/casal-com-amigo-sentado-nos-degraus-da-casa_23-2148219029.jpg?t=st=1746367001~exp=1746370601~hmac=c4dd419571ac43e680f37b70ae0cdafba53b32a7a9cffed42633b54d1b8d95c4&w=996') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: rgba(44, 62, 80, 0.9);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 20px;
-      background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 10px;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .intro p.price {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #e74c3c;
-    }
-
-    .form-container {
-      background-color: white;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      height: 100px;
-      resize: vertical;
-    }
-
-    button {
-      background-color: #3498db;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    .testimonials {
-      background-color: #f7f7f7;
-      border-radius: 10px;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    .testimonial {
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px dashed #ccc;
-    }
-
-    .testimonial:last-child {
-      border-bottom: none;
-    }
-
-    .testimonial-author {
-      font-weight: bold;
-      color: #34495e;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background-color: rgba(44, 62, 80, 0.95);
-      color: white;
-    }
-
-    .social-buttons {
-      margin-top: 1rem;
-    }
-
-    .social-buttons a {
-      display: inline-block;
-      margin: 0 10px;
-      color: white;
-      background-color: #25d366;
-      padding: 10px 15px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .social-buttons a.instagram {
-      background-color: #e1306c;
-    }
-
-    .social-buttons a:hover {
-      opacity: 0.8;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .form-container, .testimonials {
-        padding: 1rem;
-      }
-
-      button {
-        font-size: 0.95rem;
-        padding: 10px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Cartão de Crédito</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+        }
+        
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .row .form-group {
+            flex: 1;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .valid {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+        
+        .invalid {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+        
+        .card-icon {
+            height: 30px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Novos Relacionamentos</h1>
-    <p>Seja meu amigo e logo você encontra um relacionamento ❤️</p>
-  </header>
-
-  <div class="container">
-    <div class="intro">
-      <h2>Mande uma mensagem para mim!</h2>
-      <p>Preencha o formulário abaixo e eu entrarei em contato pelo WhatsApp.</p>
-      <p class="price">💰 Valor: R$150/Mês</p>
+    <div class="container">
+        <h1>Validador de Cartão de Crédito</h1>
+        
+        <form id="creditCardForm">
+            <div class="form-group">
+                <label for="cardNumber">Número do cartão:</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                <img id="cardTypeIcon" class="card-icon" src="" style="display: none;">
+            </div>
+            
+            <div class="row">
+                <div class="form-group">
+                    <label for="expiryDate">Validade:</label>
+                    <input type="text" id="expiryDate" placeholder="MM/AA" maxlength="5">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cvv">Número de segurança (CVV):</label>
+                    <input type="text" id="cvv" placeholder="123" maxlength="4">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" placeholder="123.456.789-00" maxlength="14">
+            </div>
+            
+            <button type="button" id="validateButton">Validar Cartão</button>
+            
+            <div id="result"></div>
+        </form>
     </div>
 
-    <div class="form-container">
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Seu nome:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="age">Sua idade:</label>
-          <input type="number" id="age" name="age" required min="18" max="99">
-        </div>
-
-        <div class="form-group">
-          <label for="message">Mensagem para mim:</label>
-          <textarea id="message" name="message" required placeholder="Fale um pouco sobre você..."></textarea>
-        </div>
-
-        <button type="submit">Enviar Mensagem</button>
-      </form>
-    </div>
-
-    <div class="testimonials">
-      <h2>Avaliações de Amigos</h2>
-
-      <div class="testimonial">
-        <p class="testimonial-author">Wesley Junior:</p>
-        <p>Amizade com o Kauan trouxe bons frutos. Hoje estou noivo!</p>
-      </div>
-
-      <div class="testimonial">
-        <p class="testimonial-author">Pedro Becker:</p>
-        <p>Fui amigo do Kauan e logo depois encontrei o amor da minha vida.</p>
-      </div>
-
-      <div class="testimonial">
-        <p class="testimonial-author">Rian:</p>
-        <p>Dois anos e dois meses depois de virarmos amigos, comecei a namorar.</p>
-      </div>
-
-      <div class="testimonial">
-        <p class="testimonial-author">Vinicius Lemes:</p>
-        <p>Fui amigo do Kauan e encontrei meu amor dois anos depois.</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2024 Novos Relacionamentos. Todos os direitos reservados.</p>
-    <div class="social-buttons">
-      <a href="https://wa.me/5544999630344" target="_blank">WhatsApp</a>
-      <a href="https://instagram.com/kauanlemes.m" target="_blank" class="instagram">Instagram</a>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const age = document.getElementById('age').value;
-      const message = document.getElementById('message').value;
-
-      const whatsappMessage = `Olá Kauan, sou ${name}, tenho ${age} anos. Minha mensagem: ${message}`;
-
-      window.open(`https://wa.me/5544999630344?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-
-      document.getElementById('contactForm').reset();
-
-      alert('Obrigado! Redirecionando para o WhatsApp...');
-    });
-  </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Máscaras para os campos
+            document.getElementById('cardNumber').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+                e.target.value = value.trim();
+                detectCardType(value.replace(/\s/g, ''));
+            });
+            
+            document.getElementById('expiryDate').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+            });
+            
+            document.getElementById('cpf').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 3 && value.length <= 6) {
+                    value = value.substring(0, 3) + '.' + value.substring(3);
+                } else if (value.length > 6 && value.length <= 9) {
+                    value = value.substring(0, 3) + '.' + value.substring(3, 6) + '.' + value.substring(6);
+                } else if (value.length > 9) {
+                    value = value.substring(0, 3) + '.' + value.substring(3, 6) + '.' + value.substring(6, 9) + '-' + value.substring(9, 11);
+                }
+                e.target.value = value;
+            });
+            
+            // Validação ao clicar no botão
+            document.getElementById('validateButton').addEventListener('click', validateCreditCard);
+            
+            // Função para detectar o tipo de cartão
+            function detectCardType(cardNumber) {
+                const cardTypeIcon = document.getElementById('cardTypeIcon');
+                cardTypeIcon.style.display = 'none';
+                
+                // Visa
+                if (/^4/.test(cardNumber)) {
+                    cardTypeIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg';
+                    cardTypeIcon.style.display = 'inline';
+                } 
+                // Mastercard
+                else if (/^5[1-5]/.test(cardNumber)) {
+                    cardTypeIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg';
+                    cardTypeIcon.style.display = 'inline';
+                } 
+                // American Express
+                else if (/^3[47]/.test(cardNumber)) {
+                    cardTypeIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg';
+                    cardTypeIcon.style.display = 'inline';
+                } 
+                // Diners Club
+                else if (/^3(?:0[0-5]|[68][0-9])/.test(cardNumber)) {
+                    cardTypeIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/2/24/Diners_Club_International_logo.svg';
+                    cardTypeIcon.style.display = 'inline';
+                } 
+                // Discover
+                else if (/^6(?:011|5|4[4-9])/.test(cardNumber)) {
+                    cardTypeIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg';
+                    cardTypeIcon.style.display = 'inline';
+                }
+            }
+            
+            // Função para validar o cartão usando o algoritmo de Luhn
+            function isValidCreditCard(cardNumber) {
+                // Remover espaços e caracteres não numéricos
+                cardNumber = cardNumber.replace(/\s+/g, '');
+                
+                // Verificar se contém apenas números e tem comprimento válido
+                if (!/^\d+$/.test(cardNumber) || cardNumber.length < 13 || cardNumber.length > 19) {
+                    return false;
+                }
+                
+                // Algoritmo de Luhn
+                let sum = 0;
+                let shouldDouble = false;
+                
+                for (let i = cardNumber.length - 1; i >= 0; i--) {
+                    let digit = parseInt(cardNumber.charAt(i));
+                    
+                    if (shouldDouble) {
+                        digit *= 2;
+                        if (digit > 9) {
+                            digit -= 9;
+                        }
+                    }
+                    
+                    sum += digit;
+                    shouldDouble = !shouldDouble;
+                }
+                
+                return (sum % 10) === 0;
+            }
+            
+            // Função para validar a data de expiração
+            function isValidExpiryDate(expiryDate) {
+                if (!expiryDate || expiryDate.length !== 5 || expiryDate.indexOf('/') !== 2) {
+                    return false;
+                }
+                
+                const [monthStr, yearStr] = expiryDate.split('/');
+                const month = parseInt(monthStr, 10);
+                const year = parseInt(yearStr, 10) + 2000; // Assumindo formato AA
+                
+                if (month < 1 || month > 12) {
+                    return false;
+                }
+                
+                const currentDate = new Date();
+                const currentYear = currentDate.getFullYear();
+                const currentMonth = currentDate.getMonth() + 1;
+                
+                if (year < currentYear) {
+                    return false;
+                }
+                
+                if (year === currentYear && month < currentMonth) {
+                    return false;
+                }
+                
+                return true;
+            }
+            
+            // Função para validar CPF
+            function isValidCPF(cpf) {
+                cpf = cpf.replace(/\D/g, '');
+                
+                if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+                    return false;
+                }
+                
+                let sum = 0;
+                let remainder;
+                
+                for (let i = 1; i <= 9; i++) {
+                    sum += parseInt(cpf.substring(i-1, i)) * (11 - i);
+                }
+                
+                remainder = (sum * 10) % 11;
+                
+                if ((remainder === 10) || (remainder === 11)) {
+                    remainder = 0;
+                }
+                
+                if (remainder !== parseInt(cpf.substring(9, 10))) {
+                    return false;
+                }
+                
+                sum = 0;
+                for (let i = 1; i <= 10; i++) {
+                    sum += parseInt(cpf.substring(i-1, i)) * (12 - i);
+                }
+                
+                remainder = (sum * 10) % 11;
+                
+                if ((remainder === 10) || (remainder === 11)) {
+                    remainder = 0;
+                }
+                
+                if (remainder !== parseInt(cpf.substring(10, 11))) {
+                    return false;
+                }
+                
+                return true;
+            }
+            
+            // Função principal de validação
+            function validateCreditCard() {
+                const cardNumber = document.getElementById('cardNumber').value;
+                const expiryDate = document.getElementById('expiryDate').value;
+                const cvv = document.getElementById('cvv').value;
+                const cpf = document.getElementById('cpf').value;
+                
+                const resultDiv = document.getElementById('result');
+                
+                // Validar campos vazios
+                if (!cardNumber || !expiryDate || !cvv || !cpf) {
+                    resultDiv.textContent = 'Por favor, preencha todos os campos.';
+                    resultDiv.className = 'invalid';
+                    resultDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Validar número do cartão
+                if (!isValidCreditCard(cardNumber)) {
+                    resultDiv.textContent = 'Número do cartão inválido.';
+                    resultDiv.className = 'invalid';
+                    resultDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Validar data de expiração
+                if (!isValidExpiryDate(expiryDate)) {
+                    resultDiv.textContent = 'Data de validade inválida ou expirada.';
+                    resultDiv.className = 'invalid';
+                    resultDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Validar CVV
+                const cardNumberClean = cardNumber.replace(/\s+/g, '');
+                let expectedCvvLength = 3;
+                
+                // American Express tem CVV de 4 dígitos
+                if (/^3[47]/.test(cardNumberClean)) {
+                    expectedCvvLength = 4;
+                }
+                
+                if (!/^\d+$/.test(cvv) || cvv.length !== expectedCvvLength) {
+                    resultDiv.textContent = `Código de segurança inválido (deve ter ${expectedCvvLength} dígitos).`;
+                    resultDiv.className = 'invalid';
+                    resultDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Validar CPF
+                if (!isValidCPF(cpf)) {
+                    resultDiv.textContent = 'CPF inválido.';
+                    resultDiv.className = 'invalid';
+                    resultDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Se tudo estiver válido
+                resultDiv.textContent = 'Cartão válido!';
+                resultDiv.className = 'valid';
+                resultDiv.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
