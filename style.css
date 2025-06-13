@@ -1,0 +1,54 @@
+body{
+    background-image: linear-gradient(90deg,rgb(69, 65, 159), rgb(2, 2, 2) 70%);
+    margin: 5px;
+    padding: 100px;
+}
+main{
+    text-align: justify;
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    padding: 80px;
+    border: 4px solid rgb(195, 195, 195);
+    border-radius: 30px;
+}
+    h1{
+        font-family: arial ;
+        color: rgb(176, 176, 176);  
+        text-shadow: 4px 2px 1px black;          
+    }
+    h2{
+        text-shadow: 2px 2px 1px black;
+        font-family: arial;
+        font-size:25px;
+        color: rgb(205, 205, 205);
+    }
+    div{
+        font-family: Arial;
+        font-size: 25px;
+        color: rgb(216, 216, 216);
+    }
+    p{
+        font-family: Arial;
+        font-size: 20px;
+        color:white
+    }
+    a{
+        color: rgb(175, 175, 175);
+        background-color: transparent;
+    }
+    button{
+        border-radius: 15px;
+        width: 150px;
+        height: 60px;
+    }
+    ul{
+        color: white;
+    }
+    #curriculo{
+        border: transparent;
+    }
+    #minh{
+        width: 200px;
+        height: 200px;
+    }
