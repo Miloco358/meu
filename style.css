@@ -30,3 +30,66 @@ h2 {
 div {
   font-family: Arial;
   font-size: 25px;
+  color: rgb(216, 216, 216);
+}
+
+p {
+  font-family: Arial;
+  font-size: 20px;
+  color: white;
+}
+
+a {
+  color: rgb(175, 175, 175);
+  background-color: transparent;
+}
+
+button {
+  border-radius: 15px;
+  width: 150px;
+  height: 60px;
+}
+
+ul {
+  color: white;
+}
+
+#curriculo {
+  border: transparent;
+}
+
+#minh {
+  width: 200px;
+  height: 200px;
+}
+
+/* Responsividade */
+@media (max-width: 1100px) {
+  main {
+    width: 90%;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1, h2, p, div {
+    font-size: 18px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+}
