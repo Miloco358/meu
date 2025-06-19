@@ -1,95 +1,105 @@
 body {
-  background-image: linear-gradient(90deg, rgb(69, 65, 159), rgb(2, 2, 2) 70%);
-  margin: 5px;
-  padding: 100px;
+    background-image: linear-gradient(90deg, rgb(69, 65, 159), rgb(2, 2, 2) 70%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 main {
-  text-align: justify;
-  width: 1000px;
-  height: auto;
-  margin: auto;
-  padding: 80px;
-  border: 4px solid rgb(195, 195, 195);
-  border-radius: 30px;
+    text-align: justify;
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    margin: 20px auto;
+    padding: 5%;
+    border: 4px solid rgb(195, 195, 195);
+    border-radius: 30px;
+    box-sizing: border-box;
 }
 
 h1 {
-  font-family: Arial;
-  color: rgb(176, 176, 176);
-  text-shadow: 4px 2px 1px black;
+    font-family: Arial, sans-serif;
+    color: rgb(176, 176, 176);  
+    text-shadow: 4px 2px 1px black;
+    font-size: clamp(24px, 5vw, 32px); /* Tamanho responsivo */
 }
 
 h2 {
-  text-shadow: 2px 2px 1px black;
-  font-family: Arial;
-  font-size: 25px;
-  color: rgb(205, 205, 205);
+    text-shadow: 2px 2px 1px black;
+    font-family: Arial, sans-serif;
+    font-size: clamp(18px, 4vw, 25px); /* Tamanho responsivo */
+    color: rgb(205, 205, 205);
 }
 
 div {
-  font-family: Arial;
-  font-size: 25px;
-  color: rgb(216, 216, 216);
+    font-family: Arial, sans-serif;
+    font-size: clamp(16px, 3vw, 25px); /* Tamanho responsivo */
+    color: rgb(216, 216, 216);
 }
 
 p {
-  font-family: Arial;
-  font-size: 20px;
-  color: white;
+    font-family: Arial, sans-serif;
+    font-size: clamp(14px, 2.5vw, 20px); /* Tamanho responsivo */
+    color: white;
+    line-height: 1.5;
 }
 
 a {
-  color: rgb(175, 175, 175);
-  background-color: transparent;
+    color: rgb(175, 175, 175);
+    background-color: transparent;
 }
 
 button {
-  border-radius: 15px;
-  width: 150px;
-  height: 60px;
+    border-radius: 15px;
+    width: 150px;
+    height: 60px;
+    font-size: clamp(14px, 2vw, 18px);
 }
 
 ul {
-  color: white;
+    color: white;
+    padding-left: 20px;
 }
 
 #curriculo {
-  border: transparent;
+    border: transparent;
 }
 
 #minh {
-  width: 200px;
-  height: 200px;
-}
-
-/* Responsividade */
-@media (max-width: 1100px) {
-  main {
-    width: 90%;
-    padding: 40px;
-  }
-}
-
-@media (max-width: 600px) {
-  main {
     width: 100%;
-    padding: 20px;
-    text-align: center;
-  }
-
-  h1, h2, p, div {
-    font-size: 18px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  button {
-    width: 100%;
+    max-width: 200px;
     height: auto;
-    padding: 10px;
-  }
+}
+
+/* Media Queries para ajustes específicos */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    main {
+        padding: 30px;
+        width: 95%;
+    }
+    
+    button {
+        width: 120px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 20px;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        text-shadow: 2px 1px 1px black;
+    }
+    
+    #minh {
+        max-width: 150px;
+    }
 }
