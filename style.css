@@ -100,12 +100,13 @@ hr {
 
 #minh {
     width: 100px;
-    height: 200px;      /* força largura e altura iguais */
+    height: 200px;
     border-radius: 50%;
-    object-fit: cover;  /* recorta a foto sem distorcer */
+    object-fit: cover;
     display: block;
     margin: 1rem auto;
     border: 3px solid rgb(195, 195, 195);
+    box-sizing: border-box;
 }
 
 /* Layout do Currículo */
