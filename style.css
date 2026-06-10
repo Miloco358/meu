@@ -103,7 +103,10 @@ hr {
     height: 220px;
     border-radius: 50%;
     object-fi: cover;
+    display: block;
+    margin: 1rem auto;
     border: 3px solid rgb(195, 195, 195);
+    box-sizing: border-box;
 }
 
 /* Layout do Currículo */
