@@ -99,12 +99,14 @@ hr {
 }
 
 #minh {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;      /* força largura e altura iguais */
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: cover;  /* recorta a foto sem distorcer */
     display: block;
-}
+    margin: 1rem auto;
+    border: 4px solid rgb(195, 195, 195);
+    box-sizing: border-box;
 }
 
 /* Layout do Currículo */
